@@ -3530,7 +3530,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 0 1rem;
 }
 
-.s-header__nav li.has-children {
+.s-header__nav li.menu-item-has-children {
     padding-right: 2rem;
 }
 
@@ -3541,7 +3541,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     position: relative;
 }
 
-.s-header__nav li.has-children>a::after {
+.s-header__nav li.menu-item-has-children>a::after {
     border-bottom: 1px solid white;
     border-right: 1px solid white;
     content: '';
@@ -3569,7 +3569,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     background: transparent;
 }
 
-.s-header__nav li.current>a {
+.s-header__nav li.current-menu-item>a {
     color: white;
     font-weight: 300;
 }
@@ -3852,8 +3852,8 @@ body.search-is-visible {
 }
 
 @media screen and (min-width: 901px) {
-    .s-header__nav li.has-children:hover>a::after, 
-    .s-header__nav li.has-children:focus>a::after {
+    .s-header__nav li.menu-item-has-children:hover>a::after, 
+    .s-header__nav li.menu-item-has-children:focus>a::after {
         -webkit-transform: rotate(225deg);
         transform: rotate(225deg);
     }
@@ -3927,17 +3927,17 @@ body.search-is-visible {
         -webkit-transition: none !important;
         transition: none !important;
     }
-    .s-header__nav li.has-children>a::after {
+    .s-header__nav li.menu-item-has-children>a::after {
         top: var(--vspace-1_25);
     }
-    .s-header__nav li.has-children>a.sub-menu-is-open::after {
+    .s-header__nav li.menu-item-has-children>a.sub-menu-is-open::after {
         -webkit-transform: rotate(225deg);
         transform: rotate(225deg);
     }
     .s-header__nav li ul li a {
         padding: .8rem 1.6rem .8rem 2.8rem;
     }
-    .s-header__nav li.current a {
+    .s-header__nav li.current-menu-item a {
         font-weight: 600;
     }
     .s-header__nav>li {
@@ -3995,7 +3995,7 @@ body.search-is-visible {
     .s-header__nav>li::before {
         top: 1.4em;
     }
-    .s-header__nav li.has-children>a::after {
+    .s-header__nav li.menu-item-has-children>a::after {
         top: var(--vspace-1);
     }
     .s-header__nav>li a {
