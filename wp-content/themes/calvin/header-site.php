@@ -38,9 +38,7 @@
   <header class="s-header s-header--opaque">
 
     <div class="s-header__logo">
-      <a class="logo" href="<?php bloginfo('url') ?>">
-        <?php get_custom_logo() ?>
-      </a>
+      <?php echo get_custom_logo() ?>
     </div>
 
     <div class="row s-header__navigation">

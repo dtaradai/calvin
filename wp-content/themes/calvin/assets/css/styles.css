@@ -2811,7 +2811,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     text-align: center;
 }
 
-.pgn ul {
+.pgn ul,
+.pgn div {
     display: -ms-inline-flexbox;
     display: -webkit-inline-box;
     display: inline-flex;
@@ -2834,11 +2835,14 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 0;
 }
 
-.pgn__num, .pgn__prev, .pgn__next {
+.pgn__num, .pgn__prev, .pgn__next,
+.page-numbers, .prev .page-numbers, .next .page-numbers {
     position: relative;
 }
 
-.pgn__num::after, .pgn__prev::after, .pgn__next::after {
+.pgn__num::after, .pgn__prev::after, .pgn__next::after,
+.page-numbers::after, .prev .page-numbers::after, .next .page-numbers::after
+ {
     content: "";
     display: block;
     background-color: black;
@@ -2851,7 +2855,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     bottom: 0;
 }
 
-.pgn__num {
+.pgn__num,
+.page-numbers {
     font-family: var(--font-1);
     font-weight: 400;
     font-size: var(--text-size);
@@ -2865,15 +2870,18 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transition: all, .3s, ease-in-out;
 }
 
-.pgn__num:not(.dots):hover {
+.pgn__num:not(.dots):hover,
+.page-numbers:not(.dots):hover {
     color: black;
 }
 
-.pgn__num:not(.dots):hover::after {
+.pgn__num:not(.dots):hover::after,
+.page-numbers:not(.dots):hover::after {
     width: 100%;
 }
 
-.pgn .current {
+.pgn .current,
+.page-numbers .current {
     background-color: var(--color-gray-18);
     color: var(--color-white);
 }

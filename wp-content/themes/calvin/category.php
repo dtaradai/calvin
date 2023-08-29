@@ -70,7 +70,7 @@
                 </div>
                 <div class="entry__excerpt">
                   <p>
-                    <?php the_excerpt() ?>
+                    <?php echo kama_excerpt(['maxchar' => 200]); ?>
                   </p>
                 </div>
                 <a class="entry__more-link" href="<?php the_permalink() ?>">Learn More</a>
@@ -86,27 +86,19 @@
     </div> <!-- end masonry -->
     <div class="row">
       <div class="column large-12">
-        <nav class="pgn">
-          <ul>
-            <li>
-              <span class="pgn__prev" href="#0">
-                Prev
-              </span>
-            </li>
-            <li><a class="pgn__num" href="#0">1</a></li>
-            <li><span class="pgn__num current">2</span></li>
-            <li><a class="pgn__num" href="#0">3</a></li>
-            <li><a class="pgn__num" href="#0">4</a></li>
-            <li><a class="pgn__num" href="#0">5</a></li>
-            <li><span class="pgn__num dots">…</span></li>
-            <li><a class="pgn__num" href="#0">8</a></li>
-            <li>
-              <span class="pgn__next" href="#0">
-                Next
-              </span>
-            </li>
-          </ul>
-        </nav> <!-- end pgn -->
+        <?php the_posts_pagination([
+            'show_all'     => false, // показаны все страницы участвующие в пагинации
+            'end_size'     => 1,     // количество страниц на концах
+            'mid_size'     => 2,     // количество страниц вокруг текущей
+            'prev_next'    => true,  // выводить ли боковые ссылки "предыдущая/следующая страница".
+            'prev_text'    => __('Prev'),
+            'next_text'    => __(' Next'),
+            'add_args'     => false, // Массив аргументов (переменных запроса), которые нужно добавить к ссылкам.
+            'add_fragment' => '',     // Текст который добавиться ко всем ссылкам.
+            'screen_reader_text' => __('Posts navigation'),
+            'class'        => 'pgn', // CSS класс, добавлено в 5.5.0.
+          ]) ?>
+
       </div> <!-- end column -->
     </div> <!-- end row -->
 
