@@ -31,6 +31,7 @@ function calvin_register_nav_menu()
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails',);
   add_theme_support('custom-logo');
+  add_theme_support( 'post-formats', array( 'standard', 'video', 'audio' ) );
   add_image_size('post_thumb_complete', 1200, 600, true);
   add_image_size('post_thumb_list', 600, 690, true);
 }
