@@ -1,4 +1,4 @@
-<?php get_header('site'); ?>
+<?php get_header(); ?>
 
 <!-- content
     ================================================== -->
@@ -21,7 +21,67 @@
 
   <!-- masonry
         ================================================== -->
-<?php get_template_part('templates/articles') ?>
+  <div class="s-bricks s-bricks--half-top-padding">
+
+    <div class="masonry">
+      <div class="bricks-wrapper h-group">
+
+        <div class="grid-sizer"></div>
+
+        <div class="lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <?php if (have_posts()) {
+          while (have_posts()) {
+            the_post();
+
+            get_template_part('templates/article');
+          } ?>
+
+      </div> <!-- end brick-wrapper -->
+
+    </div> <!-- end masonry -->
+    <div class="row">
+      <div class="column large-12">
+        <?php
+
+          the_posts_pagination([
+            'show_all'     => false, // показаны все страницы участвующие в пагинации
+            'end_size'     => 1,     // количество страниц на концах
+            'mid_size'     => 2,     // количество страниц вокруг текущей
+            'prev_next'    => true,  // выводить ли боковые ссылки "предыдущая/следующая страница".
+            'prev_text'    => __('Prev'),
+            'next_text'    => __(' Next'),
+            'add_args'     => false, // Массив аргументов (переменных запроса), которые нужно добавить к ссылкам.
+            'add_fragment' => '',     // Текст который добавиться ко всем ссылкам.
+            'screen_reader_text' => __('Posts navigation'),
+            'class'        => 'pgn', // CSS класс, добавлено в 5.5.0.
+          ])
+
+        ?>
+
+      </div> <!-- end column -->
+    </div> <!-- end row -->
+
+  <?php } else { ?>
+
+    <article class="brick entry" data-aos="fade-up">
+      <div class="entry__text">
+        <div class="entry__header">
+          <h1 class="entry__title">No post!</h1>
+        </div>
+      </div>
+    </article>
+  </div> <!-- end brick-wrapper -->
+
+  </div> <!-- end masonry -->
+
+<?php } ?>
+
+</div> <!-- end s-bricks -->
 
 </section> <!-- end s-content -->
 

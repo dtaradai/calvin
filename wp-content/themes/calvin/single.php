@@ -1,4 +1,4 @@
-<?php get_header('site'); ?>
+<?php get_header(); ?>
 <section class="s-content">
 
   <div class="row">
@@ -9,7 +9,7 @@
       if (false === $format) {
         $format = 'standard';
       }
-      get_template_part('tamplates/post', $format); ?>
+      get_template_part('templates/post', $format); ?>
 
     </div> <!-- end column -->
   </div> <!-- end row -->

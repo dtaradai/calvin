@@ -3276,6 +3276,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     line-height: calc(var(--vspace-1) + var(--vspace-0_125));
     margin-top: 0;
     margin-bottom: calc(0.375 * var(--space));
+    height: 110px;
 }
 
 .bricks-wrapper .entry__title a, 
@@ -3294,6 +3295,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     font-size: calc(var(--text-size) * 0.7778);
     line-height: var(--vspace-0_75);
     margin-bottom: var(--vspace-0_75);
+    height: 60px;
 }
 
 .bricks-wrapper .entry__meta a {

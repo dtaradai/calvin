@@ -4,7 +4,7 @@ Template Name: About
 */
 ?>
 
-<?php get_header('site'); ?>
+<?php get_header(); ?>
 
     <!-- content
     ================================================== -->
@@ -24,7 +24,7 @@ Template Name: About
                     </div> <!-- end s-content__media -->
 
                     <div class="s-content__entry-header">
-                        <h1 class="s-content__title">Learn More About Story.</h1>
+                        <h1 class="s-content__title"><?php the_title() ?></h1>
                     </div> <!-- end s-content__entry-header -->
 
                     <div class="s-content__primary">
