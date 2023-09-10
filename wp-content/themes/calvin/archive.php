@@ -11,7 +11,7 @@
     <div class="row">
       <div class="column large-12">
         <h1 class="page-title">
-          <span class="page-title__small-type"><?php esc_html_e('Category', 'calvin') ?></span>
+          <span class="page-title__small-type"><?php esc_html_e('Archive', 'calvin') ?></span>
           <?php echo get_queried_object()->name; ?>
         </h1>
       </div>

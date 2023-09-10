@@ -20,30 +20,30 @@
     ?>
         <div class="s-hero__slide">
 
-      <div class="s-hero__slide-bg" style="background-image: url('<?php the_post_thumbnail_url('post_thumb_complete'); ?>');"></div>
+          <div class="s-hero__slide-bg" style="background-image: url('<?php the_post_thumbnail_url('post_thumb_complete'); ?>');"></div>
 
-      <div class="row s-hero__slide-content animate-this">
-        <div class="column">
-          <div class="s-hero__slide-meta">
-            <span class="cat-links">
-              <?php get_template_part('templates/rubrics') ?>
-            </span>
-            <span class="byline">
-              <?php esc_html_e('Posted by', 'calvin') ?>
-              <span class="author">
-                <?php the_author_posts_link() ?>
-              </span>
-            </span>
+          <div class="row s-hero__slide-content animate-this">
+            <div class="column">
+              <div class="s-hero__slide-meta">
+                <span class="cat-links">
+                  <?php get_template_part('templates/rubrics') ?>
+                </span>
+                <span class="byline">
+                  <?php esc_html_e('Posted by', 'calvin') ?>
+                  <span class="author">
+                    <?php the_author_posts_link() ?>
+                  </span>
+                </span>
+              </div>
+              <h1 class="s-hero__slide-text">
+                <a href="<?php the_permalink() ?>">
+                  <?php the_title(); ?>
+                </a>
+              </h1>
+            </div>
           </div>
-          <h1 class="s-hero__slide-text">
-            <a href="<?php the_permalink() ?>">
-              <?php the_title(); ?>
-            </a>
-          </h1>
-        </div>
-      </div>
 
-    </div>
+        </div>
     <?php
       }
     }
@@ -105,32 +105,39 @@
           </div>
 
           <?php
-          global $post;
+          global $post, $wp_query;
+          $paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
 
-          $myposts = get_posts([
-            'numberposts' => 6,
-            'offset'      => 1,
-            'orderby'     => 'date',
-          ]);
+          $query_args = array(
+            'post_status' => 'publish',
+            'paged' =>  get_query_var( 'page' ),
+            'posts_per_page' => 4,
+          );
 
-          if ($myposts) {
-            foreach ($myposts as $post) {
-              setup_postdata($post);
-          ?>
-              <?php get_template_part('templates/article') ?>
-          <?php
+          $query = new WP_Query($query_args);
+
+          if ($query->have_posts()) {
+            while ($query->have_posts()) {
+              $query->the_post();
+              get_template_part('templates/article');
             }
-          }
 
-          wp_reset_postdata(); // Сбрасываем $post
-          ?>
+            wp_reset_postdata();
+          } ?>
 
         </div> <!-- end brick-wrapper -->
 
       </div> <!-- end masonry -->
 
-      <?php //get_template_part('templates/pagination') 
-      ?>
+      <?php $temp_query = $wp_query;
+      $wp_query   = null;
+      $wp_query   = $query;
+
+      get_template_part('templates/pagination');
+
+      // Reset main query object.
+      $wp_query = null;
+      $wp_query = $temp_query; ?>
 
 
     </div> <!-- end s-bricks -->
