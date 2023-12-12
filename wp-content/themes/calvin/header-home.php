@@ -6,7 +6,6 @@
   <!--- basic page needs
     ================================================== -->
   <meta charset="utf-8">
-  <title><?php bloginfo('name') ?></title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -39,9 +38,7 @@
   <header class="s-header">
 
     <div class="s-header__logo">
-      <a class="logo" href="<?php echo home_url(); ?>">
-        <img src="images/logo.svg" alt="Homepage">
-      </a>
+      <?php echo get_custom_logo(); ?>
     </div>
 
     <div class="row s-header__navigation">

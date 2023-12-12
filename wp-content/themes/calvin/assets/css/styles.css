@@ -471,6 +471,7 @@ button, select {
 
 button, [type="button"], [type="reset"], [type="submit"] {
     -webkit-appearance: button;
+    appearance: auto;
 }
 
 /* Remove the inner border and padding in Firefox. */
@@ -547,6 +548,7 @@ textarea {
 
 [type="search"] {
     -webkit-appearance: textfield;
+    appearance: auto;
     /* 1 */
     outline-offset: -2px;
     /* 2 */
@@ -2834,11 +2836,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 0;
 }
 
-.pgn__num, .pgn__prev, .pgn__next {
+.page-numbers, .prev, .next {
     position: relative;
 }
 
-.pgn__num::after, .pgn__prev::after, .pgn__next::after {
+.page-numbers::after, .prev::after, .next::after {
     content: "";
     display: block;
     background-color: black;
@@ -2851,7 +2853,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     bottom: 0;
 }
 
-.pgn__num {
+.page-numbers {
     font-family: var(--font-1);
     font-weight: 400;
     font-size: var(--text-size);
@@ -2865,11 +2867,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transition: all, .3s, ease-in-out;
 }
 
-.pgn__num:not(.dots):hover {
+.page-numbers:not(.dots):hover {
     color: black;
 }
 
-.pgn__num:not(.dots):hover::after {
+.page-numbers:not(.dots):hover::after {
     width: 100%;
 }
 
@@ -2899,7 +2901,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     display: none;
 }
 
-.pgn__prev, .pgn__next {
+.prev, .next {
     font-family: var(--font-1);
     font-weight: 400;
     font-size: var(--text-size);
@@ -2931,50 +2933,50 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transform: translate3d(0, -50%, 0);
 }
 
-.pgn__prev:hover, .pgn__next:hover {
+.prev:hover, .next:hover {
     color: black;
 }
 
-.pgn__prev:hover::after, 
-.pgn__next:hover::after {
+.prev:hover::after, 
+.next:hover::after {
     width: 100%;
 }
 
-.pgn__prev svg, .pgn__next svg {
+.prev svg, .next svg {
     height: 2.4rem;
     width: 2.4rem;
     -webkit-transition: all, .3s, ease-in-out;
     transition: all, .3s, ease-in-out;
 }
 
-.pgn__prev svg path, 
-.pgn__next svg path {
+.prev svg path, 
+.next svg path {
     fill: var(--color-text-dark);
 }
 
-.pgn__prev:hover svg path, 
-.pgn__prev:focus svg path, 
-.pgn__next:hover svg path, 
-.pgn__next:focus svg path {
+.prev:hover svg path, 
+.prev:focus svg path, 
+.next:hover svg path, 
+.next:focus svg path {
     fill: white;
 }
 
-.pgn__prev {
+.prev {
     left: 0;
 }
 
-.pgn__next {
+.next {
     right: 0;
 }
 
-.pgn__prev.inactive, 
-.pgn__next.inactive {
+.prev.inactive, 
+.next.inactive {
     opacity: 0.4;
     cursor: default;
 }
 
-.pgn__prev.inactive:hover, 
-.pgn__next.inactive:hover {
+.prev.inactive:hover, 
+.next.inactive:hover {
     background-color: transparent;
 }
 
